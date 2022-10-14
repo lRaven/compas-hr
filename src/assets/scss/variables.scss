@@ -1,0 +1,20 @@
+//* colors
+$black: #0b0c13;
+$gray: #202125;
+$white: #ececec;
+$accent: #8bec7b;
+
+//* scrollbar
+$scrollbarBg: $black;
+$scrollbarThumb: $accent;
+$scrollbarWidth: 1rem;
+$scrollbarBorder: 0.2rem solid $scrollbarBg;
+$scrollbarBorderRadius: calc($scrollbarWidth / 2);
+
+//* text
+$text-3xl: 21.5rem;
+$text-2xl: 6.4rem;
+$text-xl: 3.6rem;
+$text-l: 3.2rem;
+$text-m: 2rem;
+$text-s: 1.2rem;
