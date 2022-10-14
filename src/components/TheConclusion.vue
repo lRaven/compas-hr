@@ -43,16 +43,26 @@
 
 					<img
 						src="/img/icons/css.svg"
-						class="the-conclusion__icon-css"
+						class="the-conclusion__icon the-conclusion__icon-css"
 						alt="css"
 					/>
 				</div>
 			</div>
 
 			<div class="the-conclusion__name-wrapper">
+				<img
+					class="the-conclusion__icon the-conclusion__icon-slack"
+					src="/img/icons/slack.svg"
+					alt="icon"
+				/>
 				<h1 class="the-conclusion__name">
 					Кузне<br />
-					цов Василий
+					ц<span class="the-conclusion__name_accent">
+						о
+						<StarCard>
+							<template #> HR </template>
+						</StarCard> </span
+					>в Василий
 				</h1>
 			</div>
 		</div>
@@ -78,6 +88,7 @@
 		&__row {
 			display: flex;
 			gap: 5rem;
+			margin-bottom: 2rem;
 		}
 
 		&__card {
@@ -145,10 +156,42 @@
 		}
 
 		&__icon {
+			position: absolute;
 			&-css {
-				position: absolute;
 				bottom: 15rem;
 				left: -2rem;
+			}
+			&-slack {
+				left: -13rem;
+				top: 16rem;
+			}
+		}
+
+		&__name {
+			color: transparent;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: $accent;
+			&-wrapper {
+				position: relative;
+				background: url('/public/img/icons/vue.svg') 85rem 2rem no-repeat,
+					url('/public/img/icons/jira.svg') 75rem 13rem / 3rem no-repeat,
+					url('/public/img/icons/node.svg') 60rem 30rem no-repeat,
+					url('/public/img/icons/react.svg') 65rem 35rem no-repeat;
+			}
+			&_accent {
+				position: relative;
+				color: $accent;
+				font-weight: 400;
+				font-style: italic;
+				display: inline-block;
+			}
+			.star-card {
+				position: absolute;
+				left: 63%;
+				top: 53%;
+				transform: translate(-50%, -50%);
+				width: 14rem;
+				height: 14rem;
 			}
 		}
 	}
