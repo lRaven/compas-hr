@@ -22,5 +22,6 @@
 		padding: 3rem 6rem;
 		border-radius: 50%;
 		background-color: $gray;
+		width: max-content;
 	}
 </style>

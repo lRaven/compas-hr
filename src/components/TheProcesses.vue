@@ -1,5 +1,5 @@
 <template>
-	<section class="the-processes">
+	<section class="the-processes" v-once>
 		<div class="the-processes__container center">
 			<img
 				class="the-processes__icon"
@@ -28,14 +28,16 @@
 	export default {
 		name: 'TheProcesses',
 		components: { ProcessCard },
-		data: () => ({
-			processes: [
+		setup() {
+			const processes = [
 				{ id: 1, text: 'Трудовые' },
 				{ id: 2, text: 'Гражданско -\nправовые' },
 				{ id: 3, text: 'Увольнение и\nпринятие на работу' },
 				{ id: 4, text: 'Претензионная\nработа' },
-			],
-		}),
+			];
+
+			return { processes };
+		},
 	};
 </script>
 
@@ -46,6 +48,10 @@
 		padding-top: 14.6rem;
 		padding-bottom: 21rem;
 		background: linear-gradient(180deg, $black 0%, $gray 100%);
+		@media (max-width: 767px) {
+			padding-top: 8rem;
+			padding-bottom: 8rem;
+		}
 		&__container {
 			max-width: 100%;
 			display: flex;
@@ -55,17 +61,39 @@
 		&__icon {
 			width: 7.7rem;
 			transform: scale(-1, 1);
+			transition: transform 0.2s ease;
+			@media (max-width: 540px) {
+				transform: none;
+				margin-bottom: 5rem;
+			}
 		}
 
 		&__title {
 			text-align: center;
 			line-height: 1.8;
 			margin-bottom: 10rem;
+			@media (max-width: 767px) {
+				text-align: left;
+			}
 		}
 
 		&__list {
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
 			gap: 2rem;
+			@media (max-width: 1800px) {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 5rem;
+			}
+			@media (max-width: 1023px) {
+				gap: 2rem;
+			}
+			@media (max-width: 767px) {
+				grid-template-columns: 1fr;
+			}
+			@media (max-width: 425px) {
+				width: 100%;
+			}
 		}
 
 		&__card-text {

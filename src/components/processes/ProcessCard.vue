@@ -5,9 +5,7 @@
 </template>
 
 <script>
-	export default {
-		name: 'ProcessCard',
-	};
+	export default { name: 'ProcessCard' };
 </script>
 
 <style lang="scss" scoped>
@@ -22,5 +20,13 @@
 		justify-content: center;
 		background-color: $gray;
 		text-align: center;
+		@media (max-width: 1023px) {
+			width: 36rem;
+			height: 36rem;
+		}
+		@media (max-width: 425px) {
+			width: calc(100vw - 3rem);
+			height: calc(100vw - 3rem);
+		}
 	}
 </style>

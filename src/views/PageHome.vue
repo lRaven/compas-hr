@@ -26,8 +26,3 @@
 		},
 	};
 </script>
-
-<style lang="scss" scoped>
-	.page-home {
-	}
-</style>

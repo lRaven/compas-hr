@@ -5,9 +5,7 @@
 </template>
 
 <script>
-	export default {
-		name: 'StarCard',
-	};
+	export default { name: 'StarCard' };
 </script>
 
 <style lang="scss" scoped>

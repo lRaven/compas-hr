@@ -7,11 +7,28 @@
 </template>
 
 <script>
+	import { watch, ref, provide, onMounted } from 'vue';
+	import { useRoute } from 'vue-router';
+
 	export default {
-		watch: {
-			$route(to) {
+		setup() {
+			const route = useRoute();
+			watch(route, (to) => {
 				document.title = to.meta.title || 'Default Title';
-			},
+			});
+
+			const documentWidth = ref(document.documentElement.clientWidth);
+			provide('documentWidth', documentWidth);
+
+			const calculateDocumentWidth = () => {
+				window.addEventListener('resize', () => {
+					documentWidth.value = document.documentElement.clientWidth;
+				});
+			};
+
+			onMounted(calculateDocumentWidth);
+
+			return { documentWidth };
 		},
 	};
 </script>
@@ -72,9 +89,9 @@
 
 	section {
 		overflow: hidden;
-		padding: 2rem;
-		@media (max-width: 767px) {
-			// padding: 7rem 1.5rem;
+		padding: 3rem;
+		@media (max-width: 425px) {
+			padding: 2rem 1.5rem;
 		}
 	}
 
@@ -122,18 +139,29 @@
 	h1 {
 		font-size: $text-3xl;
 		font-weight: 700;
-		@media (max-width: 767px) {
+		font-weight: bold;
+
+		@media (max-width: 1440px) {
+			font-size: 15rem;
+		}
+		@media (max-width: 1023px) {
+			font-size: 10rem;
+		}
+		@media (max-width: 620px) {
 			font-size: $text-2xl;
+		}
+		@media (max-width: 424px) {
+			font-size: 5rem;
 		}
 	}
 	h2 {
 		font-size: $text-2xl;
 		line-height: 1.2;
-		@media (max-width: 767px) {
+		@media (max-width: 1240px) {
 			font-size: 4rem;
 		}
-		@media (max-width: 425px) {
-			// font-size: $text-xl;
+		@media (max-width: 375px) {
+			font-size: $text-l;
 		}
 	}
 	h3 {
@@ -148,9 +176,16 @@
 		@media (max-width: 767px) {
 			font-size: 2.4rem;
 		}
+		@media (max-width: 374px) {
+			font-size: $text-m;
+		}
 	}
 
 	p {
 		line-height: 1.2;
+		font-size: $text-m;
+		@media (max-width: 767px) {
+			font-size: 1.6rem;
+		}
 	}
 </style>

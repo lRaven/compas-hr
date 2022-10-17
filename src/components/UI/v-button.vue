@@ -5,9 +5,7 @@
 <script>
 	export default {
 		name: 'VButton',
-		props: {
-			text: String,
-		},
+		props: { text: String },
 	};
 </script>
 
@@ -23,6 +21,10 @@
 		padding: 1rem 3rem;
 		transition: all 0.2s ease;
 		height: max-content;
+		min-width: max-content;
+		@media (max-width: 374px) {
+			font-size: $text-l;
+		}
 		&:hover {
 			background-color: $accent;
 			color: $black;
