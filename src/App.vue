@@ -139,7 +139,6 @@
 	h1 {
 		font-size: $text-3xl;
 		font-weight: 700;
-		font-weight: bold;
 
 		@media (max-width: 1440px) {
 			font-size: 15rem;
