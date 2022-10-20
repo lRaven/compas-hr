@@ -39,7 +39,11 @@
 						></EllipseCard>
 					</div>
 
-					<VButton text="НАПИШИ МНЕ" v-once></VButton>
+					<VButton
+						text="НАПИШИ МНЕ"
+						v-once
+						@click="openLink('https://telegram.im/@compass_pro')"
+					></VButton>
 				</div>
 
 				<div class="the-banner__row" v-else>
@@ -87,7 +91,11 @@
 					></EllipseCard>
 				</div>
 
-				<VButton text="НАПИШИ МНЕ" v-once></VButton>
+				<VButton
+					text="НАПИШИ МНЕ"
+					v-once
+					@click="openLink('https://telegram.im/@compass_pro')"
+				></VButton>
 			</div>
 		</div>
 	</section>
@@ -98,11 +106,14 @@
 	import EllipseCard from '@/components/EllipseCard.vue';
 
 	import { inject } from 'vue';
+	import { openLink } from '@/js/openLink.js';
 
 	export default {
 		name: 'TheBanner',
 		components: { StarCard, EllipseCard },
 		setup() {
+			const documentWidth = inject('documentWidth');
+
 			const icons = [
 				{
 					id: 1,
@@ -118,9 +129,12 @@
 				{ id: 2, text: '120+ проектов' },
 			];
 
-			const documentWidth = inject('documentWidth');
-
-			return { icons, experience, documentWidth };
+			return {
+				documentWidth,
+				icons,
+				experience,
+				openLink,
+			};
 		},
 	};
 </script>

@@ -38,7 +38,10 @@
 						копирайтеров – специально под ваши задачи.
 					</h4>
 
-					<VButton text="НАПИШИ МНЕ"></VButton>
+					<VButton
+						text="НАПИШИ МНЕ"
+						@click="openLink('https://telegram.im/@compass_pro')"
+					></VButton>
 
 					<img
 						src="/img/icons/css.svg"
@@ -73,6 +76,8 @@
 	import StarCard from '@/components/StarCard.vue';
 	import EllipseCard from '@/components/EllipseCard.vue';
 
+	import { openLink } from '@/js/openLink.js';
+
 	export default {
 		name: 'TheConclusion',
 		components: { StarCard, EllipseCard },
@@ -83,7 +88,7 @@
 				{ id: 2, text: '120+ проектов', name: 'projects' },
 			];
 
-			return { experience };
+			return { experience, openLink };
 		},
 	};
 </script>
