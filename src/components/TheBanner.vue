@@ -1,17 +1,16 @@
 <template>
 	<section class="the-banner">
 		<div class="the-banner__container center">
-			<template v-if="documentWidth > 1300">
-				<!-- decorative icons -->
-				<img
-					v-for="icon in icons"
-					:key="icon.id"
-					:class="`the-banner__${icon.name}`"
-					:src="icon.img"
-					:alt="icon.name"
-					v-once
-				/>
-			</template>
+			<!-- decorative icons -->
+			<img
+				v-for="icon in icons"
+				:key="icon.id"
+				class="the-banner__decorative-icon"
+				:class="`the-banner__${icon.name}`"
+				:src="icon.img"
+				:alt="icon.name"
+				v-once
+			/>
 
 			<div class="the-banner__col">
 				<h1 class="the-banner__title">
@@ -271,6 +270,12 @@
 			@media (max-width: 374px) {
 				width: 12rem;
 				height: 17rem;
+			}
+		}
+
+		&__decorative-icon {
+			@media (max-width: 1300px) {
+				display: none;
 			}
 		}
 
